@@ -1,0 +1,85 @@
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Changed to exactly 3 columns */
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.note-wrapper {
+    min-height: 200px;
+    height: fit-content;
+}
+
+.note-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+}
+
+.note-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.note-card.expanded {
+    position: relative;
+    z-index: 1;
+    height: auto;
+}
+
+.note-content {
+    flex-grow: 1;
+}
+
+.note-title {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.note-text {
+    color: #666;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+}
+
+.note-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.see-more-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    padding: 0;
+    font-size: 0.875rem;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 0.5rem;
+}
+
+.see-more-btn:hover {
+    color: #0056b3;
+}
+
+/* Make the layout responsive */
+@media (max-width: 992px) {
+    .notes-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .notes-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+}
